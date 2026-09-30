@@ -5,6 +5,12 @@ const lista = document.getElementById("lista");
 
 let contactos = [];
 
+const spanContador = document.getElementById("contador");
+
+function actualizarContador() {
+  spanContador.textContent = contactos.length;
+}
+
 function mostrarContactos(arreglo) {
   lista.innerHTML = "";
 
