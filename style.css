@@ -43,3 +43,65 @@ input:focus {
 #btn-agregar:hover {
   background: #255a4c;
 }
+
+.contenedor {
+  max-width: 550px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+#lista {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+#lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+#lista .info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#lista .telefono {
+  color: #777;
+  font-size: 14px;
+}
+
+.btn-eliminar {
+  background: #fff;
+  color: #b3372f;
+  border: 1px solid #e0b4b0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background: #fbeceb;
+}
+
+.vacio {
+  text-align: center;
+  color: #777;
+  padding: 24px 0;
+}
+
+.contador {
+  border-top: 1px solid #e3e3e3;
+  padding-top: 16px;
+  margin: 0;
+  font-weight: bold;
+  color: #666;
+}
