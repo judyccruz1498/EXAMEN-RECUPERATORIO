@@ -59,3 +59,10 @@ btnAgregar.addEventListener("click", function () {
 });
 
 mostrarContactos(contactos);
+
+btnEliminar.addEventListener("click", function () {
+    contactos = contactos.filter(function (c) {
+    return c.id !== contacto.id;
+    });
+    mostrarContactos(contactos);
+});
