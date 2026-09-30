@@ -2,10 +2,10 @@ const inputNombre = document.getElementById("nombre");
 const inputTelefono = document.getElementById("telefono");
 const btnAgregar = document.getElementById("btn-agregar");
 const lista = document.getElementById("lista");
+const inputBuscador = document.getElementById("buscador");
+const spanContador = document.getElementById("contador");
 
 let contactos = [];
-
-const spanContador = document.getElementById("contador");
 
 function actualizarContador() {
   spanContador.textContent = contactos.length;
@@ -43,10 +43,28 @@ function mostrarContactos(arreglo) {
     btnEliminar.className = "btn-eliminar";
     btnEliminar.textContent = "Eliminar";
 
+    btnEliminar.addEventListener("click", function () {
+      contactos = contactos.filter(function (c) {
+        return c.id !== contacto.id;
+      });
+      actualizarContador();
+      buscar();
+    });
+
     li.appendChild(info);
     li.appendChild(btnEliminar);
     lista.appendChild(li);
   });
+}
+
+function buscar() {
+  const texto = inputBuscador.value.trim().toLowerCase();
+
+  const filtrados = contactos.filter(function (c) {
+    return c.nombre.toLowerCase().includes(texto);
+  });
+
+  mostrarContactos(filtrados);
 }
 
 btnAgregar.addEventListener("click", function () {
@@ -61,28 +79,11 @@ btnAgregar.addEventListener("click", function () {
 
   inputNombre.value = "";
   inputTelefono.value = "";
-  mostrarContactos(contactos);
+  actualizarContador();
+  buscar();
 });
-
-mostrarContactos(contactos);
-
-btnEliminar.addEventListener("click", function () {
-    contactos = contactos.filter(function (c) {
-    return c.id !== contacto.id;
-    });
-    mostrarContactos(contactos);
-});
-
-const inputBuscador = document.getElementById("buscador");
-
-function buscar() {
-  const texto = inputBuscador.value.trim().toLowerCase();
-
-  const filtrados = contactos.filter(function (c) {
-    return c.nombre.toLowerCase().includes(texto);
-  });
-
-  mostrarContactos(filtrados);
-}
 
 inputBuscador.addEventListener("input", buscar);
+
+mostrarContactos(contactos);
+actualizarContador();
