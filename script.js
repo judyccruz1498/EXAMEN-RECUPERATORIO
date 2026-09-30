@@ -72,3 +72,17 @@ btnEliminar.addEventListener("click", function () {
     });
     mostrarContactos(contactos);
 });
+
+const inputBuscador = document.getElementById("buscador");
+
+function buscar() {
+  const texto = inputBuscador.value.trim().toLowerCase();
+
+  const filtrados = contactos.filter(function (c) {
+    return c.nombre.toLowerCase().includes(texto);
+  });
+
+  mostrarContactos(filtrados);
+}
+
+inputBuscador.addEventListener("input", buscar);
